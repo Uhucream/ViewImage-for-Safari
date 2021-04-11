@@ -1,11 +1,12 @@
 // On options button click
 document.getElementById('options-page').addEventListener('click', function () {
-    chrome.runtime.openOptionsPage();
+    browser.runtime.openOptionsPage();
 });
 
 // Get debug info
-var manifestData = chrome.runtime.getManifest();
-chrome.runtime.getPlatformInfo(function (info) {
+var manifestData = browser.runtime.getManifest();
+browser.runtime.getPlatformInfo(function (info) {
     var debugString = 'v' + manifestData.version + ' (' + info.os + ' ' + info.nacl_arch + ')  - ' + manifestData.current_locale;
+    debugString = `v${manifestData.version} (${info.os} ${info.arch}) - ${browser.i18n.getUILanguage()}`;
     document.getElementById('debug').innerText = debugString;
 });
