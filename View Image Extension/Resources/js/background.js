@@ -11,6 +11,6 @@ const defaultOptions = {
 };
 
 // Save default options to storage
-browser.storage.sync.get('defaultOptions', function () {
-    browser.storage.sync.set({ defaultOptions });
+browser.storage.local.get('defaultOptions', function () {
+    browser.storage.local.set({ defaultOptions });
 });

@@ -7,7 +7,7 @@ let options;
 // Load options from storage
 const load = function () {
     return new Promise(function (resolve) {
-        browser.storage.sync.get('options', function (storage) {
+        browser.storage.local.get('options', function (storage) {
             // Get and save options
             options = storage.options || Object.assign({}, defaultOptions);
 
@@ -21,7 +21,7 @@ const load = function () {
 // Save options to storage
 const save = function (object) {
     return new Promise(function (resolve) {
-        browser.storage.sync.set({
+        browser.storage.local.set({
             'options': object
         }, resolve);
     });
@@ -67,7 +67,7 @@ const reset = function () {
 
 
 // Load default options once when page loads, then load user options
-browser.storage.sync.get('defaultOptions', function (storage) {
+browser.storage.local.get('defaultOptions', function (storage) {
     // Get and save default options
     defaultOptions = storage.defaultOptions;
 

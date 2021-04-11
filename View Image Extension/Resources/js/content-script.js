@@ -382,7 +382,7 @@ var observer = new MutationObserver(function (mutations) {
 
 // Get options and start adding links
 var options;
-browser.storage.sync.get(['options', 'defaultOptions'], function (storage) {
+browser.storage.local.get(['options', 'defaultOptions'], function (storage) {
     options = Object.assign(storage.defaultOptions, storage.options);
 
     if (DEBUG)
